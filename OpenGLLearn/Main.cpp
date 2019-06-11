@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 
 #include "Data.h"
+#include "Shader.h"
 using namespace std;
 
 void SetViewport(GLFWwindow* window, int width, int height);
@@ -36,43 +37,44 @@ int main() {
 	}
 
 #pragma endregion
+
 #pragma region Shader
-	unsigned vertexShader;
-	vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-	glCompileShader(vertexShader);
+	//unsigned vertexShader;
+	//vertexShader = glCreateShader(GL_VERTEX_SHADER);
+	//glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+	//glCompileShader(vertexShader);
 
-	int success;
-	char infoLog[512];
-	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-	if (!success)
-	{
-		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-		cout << "顶点着色器错误：\n" << infoLog << endl;
-	}
+	//int success;
+	//char infoLog[512];
+	//glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
+	//if (!success)
+	//{
+	//	glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
+	//	cout << "顶点着色器错误：\n" << infoLog << endl;
+	//}
 
-	unsigned int fragmentShader;
-	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-	glCompileShader(fragmentShader);
+	//unsigned int fragmentShader;
+	//fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+	//glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
+	//glCompileShader(fragmentShader);
 
 
-	unsigned int shaderProgram;
-	shaderProgram = glCreateProgram();
-	glAttachShader(shaderProgram, vertexShader);
-	glAttachShader(shaderProgram, fragmentShader);
-	glLinkProgram(shaderProgram);
+	//unsigned int shaderProgram;
+	//shaderProgram = glCreateProgram();
+	//glAttachShader(shaderProgram, vertexShader);
+	//glAttachShader(shaderProgram, fragmentShader);
+	//glLinkProgram(shaderProgram);
 
-	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-	if (!success)
-	{
-		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-		cout << "片元着色器错误：\n" << infoLog << endl;
-	}
-	glUseProgram(shaderProgram); //激活
+	//glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
+	//if (!success)
+	//{
+	//	glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+	//	cout << "片元着色器错误：\n" << infoLog << endl;
+	//}
+	//glUseProgram(shaderProgram); //激活
 
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
+	//glDeleteShader(vertexShader);
+	//glDeleteShader(fragmentShader);
 #pragma endregion
 
 #pragma region 模型
@@ -100,7 +102,9 @@ int main() {
 	glEnableVertexAttribArray(0);
 #pragma endregion
 
-
+	Shader myShader("test.vert", "test.frag");
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);//启动线框绘制模式
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);//恢复默认绘制模式
 	while (!glfwWindowShouldClose(window))
 	{
 		ProcessInput(window);
@@ -109,10 +113,11 @@ int main() {
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		//绘制
-		glUseProgram(shaderProgram);
+		//glUseProgram(shaderProgram);
+		myShader.use();
 		glBindVertexArray(VAO);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-		/*glDrawArrays(GL_TRIANGLES, 0, 3);*/
+		// glDrawArrays(GL_TRIANGLES, 0, 3); // 不使用索引绘制的方法
 		glBindVertexArray(0);
 
 		glfwSwapBuffers(window);
