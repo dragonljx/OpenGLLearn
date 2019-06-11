@@ -1,6 +1,9 @@
+#define STB_IMAGE_IMPLEMENTATION
+
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include "stb_image.h"
 
 #include "Data.h"
 #include "Shader.h"
@@ -101,6 +104,11 @@ int main() {
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 #pragma endregion
+
+#pragma region 纹理
+
+#pragma endregion
+
 
 	Shader myShader("test.vert", "test.frag");
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);//启动线框绘制模式
