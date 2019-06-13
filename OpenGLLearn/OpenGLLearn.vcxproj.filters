@@ -18,13 +18,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="glad.c">
       <Filter>资源文件</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CubeScene.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LightScene.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,12 +41,27 @@
     <ClInclude Include="stb_image.h">
       <Filter>资源文件</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="test.vert">
       <Filter>Shader</Filter>
     </None>
     <None Include="test.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="lightShader.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="lightShader.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="default.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="default.frag">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>

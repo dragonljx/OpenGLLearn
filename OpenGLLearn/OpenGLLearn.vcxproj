@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>E:\MyCode\OpenGL\Asset\glfw-3.3.bin.WIN32\include;E:\MyCode\OpenGL\Asset\glad\include;$(IncludePath)</IncludePath>
+    <IncludePath>E:\MyCode\OpenGL\Asset\glm\glm;E:\MyCode\OpenGL\Asset\glfw-3.3.bin.WIN32\include;E:\MyCode\OpenGL\Asset\glad\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -129,15 +129,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="glad.c" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="CubeScene.cpp" />
+    <ClCompile Include="LightScene.cpp" />
     <ClCompile Include="Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Data.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="default.frag" />
+    <None Include="default.vert" />
+    <None Include="lightShader.frag" />
+    <None Include="lightShader.vert" />
     <None Include="test.frag" />
     <None Include="test.vert" />
   </ItemGroup>
