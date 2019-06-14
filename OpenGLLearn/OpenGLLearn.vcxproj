@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>E:\MyCode\OpenGL\Asset\glm\glm;E:\MyCode\OpenGL\Asset\glfw-3.3.bin.WIN32\include;E:\MyCode\OpenGL\Asset\glad\include;$(IncludePath)</IncludePath>
+    <IncludePath>E:\MyCode\OpenGL\Asset\glm\glm;E:\MyCode\OpenGL\Asset\glfw-3.3.bin.WIN32\include;E:\MyCode\OpenGL\Asset\assimp\include;E:\MyCode\OpenGL\Asset\glad\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -82,8 +82,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>E:\MyCode\OpenGL\Asset\glfw-3.3.bin.WIN32\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:\MyCode\OpenGL\Asset\assimp\lib;E:\MyCode\OpenGL\Asset\glfw-3.3.bin.WIN32\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -128,16 +128,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CreateGame.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="CubeScene.cpp" />
     <ClCompile Include="LightScene.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Tool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CreateGame.h" />
     <ClInclude Include="Data.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="stb_image.h" />
+    <ClInclude Include="Tool.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="default.frag" />
